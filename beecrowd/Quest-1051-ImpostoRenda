@@ -1,0 +1,50 @@
+/*Em um país imaginário denominado Lisarb, todos os habitantes ficam felizes em pagar seus impostos,
+pois sabem que nele não existem políticos corruptos e os recursos arrecadados são utilizados em benefício da população, 
+sem qualquer desvio. A moeda deste país é o Rombus, cujo símbolo é o R$.
+Leia um valor com duas casas decimais, equivalente ao salário de uma pessoa de Lisarb.
+Em seguida, calcule e mostre o valor que esta pessoa deve pagar de Imposto de Renda, segundo a tabela abaixo*/
+
+#include <iostream>
+#include <format>
+
+float Calculador( float _Rombus , float _porcentagem )
+    {
+        float Imposto = _Rombus * (_porcentagem/100);
+        return Imposto;
+    };
+
+int main()
+{
+    
+    float Rombus;
+    float Imposto;
+    
+    std::cin >> Rombus;
+    
+    if ( Rombus >= 0 && Rombus <= 2000 ) { 
+        std::cout << "Isento" << std::endl;
+        return 0;
+    }    
+    
+    if (Rombus > 2000.0f && Rombus > 3000){
+        Imposto += 1000 * 0.08;
+    } else if (Rombus > 2000.0f && Rombus <= 3000)  {
+        Imposto += Calculador( Rombus - 2000 , 8 );
+        
+    }
+    
+    if ( Rombus > 3000 && Rombus > 4500 ) {
+        Imposto += 1500 * 0.18;
+    } else if ( Rombus > 3000 && Rombus <= 4500 ) {
+        Imposto += Calculador( Rombus - 3000 , 18 );
+        
+    }
+    
+    if ( Rombus > 4500) {
+        Imposto += Calculador( Rombus - 4500 , 28 );
+    }
+    
+    std::cout << std::format( "R$ {:.2f}", Imposto ) ;
+    
+    return 0;
+}
