@@ -44,7 +44,7 @@ int main()
         Imposto += Calculador( Rombus - 4500 , 28 );
     }
     
-    std::cout << std::format( "R$ {:.2f}", Imposto ) ;
+    std::cout << std::format( "R$ {:.2f}", Imposto ) <<  std::endl;
     
     return 0;
 }
