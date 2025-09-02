@@ -1,0 +1,25 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    float leitura;
+    float contador = 0;
+    float num = 0;
+
+    for (int i = 0; i < 6; i++) {
+        cin >> leitura;
+        if (leitura > 0) {
+            contador++;
+            num += leitura;
+        }
+    }
+
+    cout << contador << " valores positivos" << endl;
+
+    if (contador > 0) {
+        cout << fixed << setprecision(1) << num / contador << endl;
+    }
+
+    return 0;
+}

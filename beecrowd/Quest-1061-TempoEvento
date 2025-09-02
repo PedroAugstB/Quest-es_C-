@@ -1,0 +1,48 @@
+#include <cstdio>
+using namespace std;
+
+int main () {
+    int dia_inicio {0}, hora_inicio {0}, minuto_inicio {0}, segundo_inicio {0};
+    int dia_fim {0}, hora_fim {0}, minuto_fim {0}, segundo_fim {0};
+
+    long segundos_totais_inicio {0}, segundos_totais_fim {0}, diferenca_segundo_total{0};
+
+    int duracao_dia, duracao_hora, duracao_minuto, duracao_segundo;
+
+    // Leitura no formato "dia hora:minuto:segundo"
+    scanf("%d %d : %d : %d", &dia_inicio, &hora_inicio, &minuto_inicio, &segundo_inicio);
+    scanf("%d %d : %d : %d", &dia_fim, &hora_fim, &minuto_fim, &segundo_fim);
+
+    // Converter tudo para segundos
+    segundos_totais_inicio  = ( dia_inicio * 86400 )
+                            + ( hora_inicio * 3600 )
+                            + ( minuto_inicio * 60 )
+                            + ( segundo_inicio );
+                                 
+    segundos_totais_fim     = ( dia_fim * 86400 )
+                            + ( hora_fim * 3600 )
+                            + ( minuto_fim * 60 )
+                            + ( segundo_fim );
+    
+    diferenca_segundo_total = segundos_totais_fim - segundos_totais_inicio;
+    
+    // Quebrar em dias, horas, minutos, segundos
+    duracao_dia = diferenca_segundo_total / 86400;
+    diferenca_segundo_total %= 86400;
+    
+    duracao_hora = diferenca_segundo_total / 3600;
+    diferenca_segundo_total %= 3600;
+    
+    duracao_minuto = diferenca_segundo_total / 60;
+    diferenca_segundo_total %= 60;
+    
+    duracao_segundo = diferenca_segundo_total;
+
+    // Saída no formato pedido
+    printf("%d dia(s)\n", duracao_dia);
+    printf("%d hora(s)\n", duracao_hora);
+    printf("%d minuto(s)\n", duracao_minuto);
+    printf("%d segundo(s)\n", duracao_segundo);
+
+    return 0;
+}

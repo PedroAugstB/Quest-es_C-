@@ -6,12 +6,14 @@ A seguir, mostre a quantidade de valores positivos digitados.*/
 int main () {
 
     int leitura;
-        for ( int i ; i < 6 ; i++) {
-            if (leitura){ 
-                i++;
+    int contador;
+        for ( static int i  ; i < 6 ; i++) {
+            std::cin >> leitura;
+            if (leitura > 0){
+                contador++;
             }
         }
     
-    std::cout << leitura << "valores positivos" << std::endl;
+    std::cout << contador << " valores positivos" << std::endl;
 
 }
